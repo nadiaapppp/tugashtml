@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styless.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Link Chart.js -->
+    <style>
+        /* CSS untuk tata letak */
+        .content-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .transactions-section {
+            width: 65%; /* Lebar transaksi lebih besar */
+        }
+
+        .chart-section {
+            width: 35%; /* Lebar chart lebih kecil */
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 300px !important; /* Atur tinggi canvas */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>FiiNeo.io</h2>
+            <ul>
+                <li class="active">Dashboard</li>
+                <li>Statistics</li>
+                <li>My Wallet</li>
+                <li>Transfers</li>
+                <li>Message</li>
+                <li>Favorite</li>
+                <li>Profile</li>
+            </ul>
+            <div class="sidebar-bottom">
+                <a href="#">Support</a>
+                <a href="#">Settings</a>
+                <a href="#">Log out</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Hello, iaaa 👋</h1>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                </div>
+                <div class="profile">
+                    <img src="c:\Users\user\Downloads\nadiavrll2.jpg" alt="Profile">
+                </div>
+            </div>
+
+            <div class="cards-section">
+                <h2>My Cards</h2>
+                <div class="cards">
+                    <div class="card visa">
+                        <h3>VISA</h3>
+                        <p>1230 4670 1230</p>
+                        <p>Rakib Kowshar</p>
+                    </div>
+                    <div class="card other-card">
+                        <h3>**** **** ****</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="content-section">
+                <!-- Transactions -->
+                <div class="transactions-section">
+                    <h2>Transactions</h2>
+                    <ul>
+                        <li>Wedding video - $3,000 - Apr 06, 2021</li>
+                        <li>Passport verification - $100 - Apr 02, 2021</li>
+                        <li>RK's Photography - $470 - Mar 28, 2021</li>
+                        <li>Passport verification - $100 - Apr 02, 2021</li>
+                        <li>Grocery Shop - $186 - Mar 24, 2021</li>
+                        <li>Flight Ticket - $860 - Mar 21, 2021</li>
+                    </ul>
+                </div>
+
+                <!-- Chart -->
+                <div class="chart-section">
+                    <h2>Expenses Chart</h2>
+                    <canvas id="expensesChart"></canvas> <!-- Canvas for Chart -->
+                </div>
+            </div>
+
+            <!-- History -->
+            <div class="history-section">
+                <h2>History</h2>
+                <ul>
+                    <li>LinkedIn Pro - $260.80 - Mar 10, 2021</li>
+                    <li>Figma plan - $126.50 - Mar 09, 2021</li>
+                    <li>Instagram ads - $108.40 - Mar 08, 2021</li>
+                    <li>Dribble Pro - $108.40 - Mar 08, 2021</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js Script -->
+    <script>
+        var ctx = document.getElementById('expensesChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line', // Line chart type
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                datasets: [{
+                    label: 'Expenses in $',
+                    backgroundColor: 'rgba(162, 146, 246, 0.2)', // Area color
+                    borderColor: '#a292f6', // Line color
+                    data: [3000, 2000, 470, 100, 860, 2500, 6482, 5200, 6000] // Example data points
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
